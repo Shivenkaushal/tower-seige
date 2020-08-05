@@ -124,7 +124,7 @@ setTimeout(()=>{
 }
 
 async function getbackground(){
-  var response = await fetch("https://www.worldtimeserver.com/current_time_in_IN.aspx");
+  var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata");
   var responseJson=await response.json();
   var datetime=responseJson.datetime;
   var hour= datetime.slice(11,13);
