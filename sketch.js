@@ -90,7 +90,12 @@ function keyPressed() {
     slingshot.attach(bird.body);
     hit = hit-1
   }
+  if (hit=0){
+  Events.on(mConstraint, "enddrag",world)
+
   
+  
+  }
  
   if (keyCode === LEFT_ARROW) {
     World.remove(world,box1.body)
