@@ -14,7 +14,6 @@ var dotImg;
 var boxImg;
 var gamestate="onSling"
 var bg="images/download.jpg";
-var gamestate2 = "startgame"
 function preload() {
   dotImg = loadImage('images/dot.png');
   boxImg = loadImage('images/equals.png');
@@ -92,10 +91,7 @@ function keyPressed() {
     hit = hit-1
   }
   
-  if ( hit = 0){
-  gamestate2 = "endgame" 
-    World.remove(world,mConstraint);
-  }
+ 
   if (keyCode === LEFT_ARROW) {
     World.remove(world,box1.body)
     World.remove(world,box2.body)
@@ -118,7 +114,6 @@ function keyPressed() {
     box9 = new box(1000,50,40,40);
     box10 = new box(1030,10,40,40);
    hit = 5
-    World.add(world,mConstraint);
   }
 }
 function mouseReleased(){
