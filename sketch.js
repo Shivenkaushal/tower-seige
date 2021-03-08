@@ -91,7 +91,7 @@ function keyPressed() {
     hit = hit-1
   }
   if (hit=0){
-  Events.on(mConstraint, "enddrag",world)
+ Events.trigger(mConstraint, 'enddrag', { mouse: mouse, body: body });
 
   
   
