@@ -82,15 +82,6 @@ text (hit,100,100)
 }
 
 function keyPressed() {
-  if (keyCode === 32 && hit >= 1) {
-    World.remove(world,bird.body)
-    bird = new Bird(270, 250, 25);
-    slingshot.attach(bird.body);
-    hit = hit-1
-  }
-  if (hit=0){
- Events.trigger(mConstraint, 'enddrag', { mouse: mouse, body: bird }); 
-  }
  
   if (keyCode === LEFT_ARROW) {
     World.remove(world,box1.body)
@@ -119,6 +110,12 @@ function keyPressed() {
 function mouseReleased(){
 setTimeout(()=>{
   slingshot.fly()
+  if(hit =>1){
+   World.remove(world,bird.body)
+    bird = new Bird(270, 250, 25);
+    slingshot.attach(bird.body);
+    hit = hit-1
+  }
 },100)
 
 }
