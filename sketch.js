@@ -12,7 +12,6 @@ var box1,box2,box3,box4,box5,box6,box7,box8,box9,box10,log1;
 var bkgImg;
 var dotImg;
 var boxImg;
-var gamestate="onSling"
 var bg="images/download.jpg";
 function preload() {
   dotImg = loadImage('images/dot.png');
@@ -43,7 +42,7 @@ function setup() {
   box10 = new box(1030,10,40,40);
  
   slingshot = new SlingShot({x:270,y:250,},bird.body );
-if (gamestate==="onSling"){
+
   var mouse = Mouse.create(canvas.elt);
   var options = {
     mouse: mouse
@@ -52,7 +51,7 @@ if (gamestate==="onSling"){
   mouse.pixelRatio = pixelDensity();
   mConstraint = MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
-}
+
 }
 
 
@@ -84,17 +83,13 @@ text (hit,100,100)
 
 function keyPressed() {
   if (keyCode === 32 && hit >= 1) {
-    gamesatte="launch"
     World.remove(world,bird.body)
     bird = new Bird(270, 250, 25);
     slingshot.attach(bird.body);
     hit = hit-1
   }
   if (hit=0){
- Events.trigger(mConstraint, 'enddrag', { mouse: mouse, body: body });
-
-  
-  
+ Events.trigger(mConstraint, 'enddrag', { mouse: mouse, body: bird }); 
   }
  
   if (keyCode === LEFT_ARROW) {
@@ -122,7 +117,6 @@ function keyPressed() {
   }
 }
 function mouseReleased(){
-  gamestate="launch"
 setTimeout(()=>{
   slingshot.fly()
 },100)
